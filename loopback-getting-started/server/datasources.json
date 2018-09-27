@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "database": {
+    "host": "127.0.0.1",
+    "port": 8080,
+    "url": "",
+    "database": "database",
+    "password": "1234",
+    "name": "database",
+    "user": "postgres",
+    "connector": "postgresql"
+  }
+}
