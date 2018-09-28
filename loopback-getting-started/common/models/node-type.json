@@ -1,0 +1,28 @@
+{
+  "name": "node_type",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "is_endpoint": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "nodes": {
+      "type": "hasMany",
+      "model": "node",
+      "foreignKey": "type_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

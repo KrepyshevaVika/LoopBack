@@ -1,18 +1,19 @@
 'use strict';
-//var ds = require('../../server/datasources/database')('postgresql');
-module.exports = function(app) {
-    console.log(app);
-    app.dataSources.database.automigrate('node', function(err) {
-        if (err) throw err;
-     
-        app.models.node.create([
-          {name: 'Bel Cafe'},
-          {name: 'Three Bees Coffee House'},
-          {name: 'Caffe Artigiano'},
-        ], function(err, nodes) {
-          if (err) throw err;
-     
-          console.log('Models created: \n', nodes);
-        });
-      });
+
+module.exports = function(Node) {
+  /*  Node.afterCreate = function(next) {
+        if (this.node_id)
+            Node.findById(this.node_id)
+            .then(function(instance) {
+                Node.upsertWithWhere({where: {id: instance.id}}, {count_child: instance.count_child+1})
+                .then(function(obj) {
+
+                }).catch(function(err){
+                    throw err;
+                })
+            }).catch(function(err){
+                throw err;
+            })
+        next();
+    };     */ 
 };

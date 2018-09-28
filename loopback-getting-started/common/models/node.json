@@ -7,11 +7,34 @@
   },
   "properties": {
     "name": {
+      "type": "string",
+      "required": true
+    },
+    "ip_adress": {
       "type": "string"
+    },
+    "web_port": {
+      "type": "number"
+    },
+    "count_child": {
+      "type": "number",
+      "required": true,
+      "default": 0
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "node_type": {
+      "type": "belongsTo",
+      "model": "node_type",
+      "foreignKey": "type_id"
+    },
+    "nodes": {
+      "type": "hasMany",
+      "model": "node",
+      "foreignKey": "node_id"
+    }
+  },
   "acls": [],
   "methods": {}
 }

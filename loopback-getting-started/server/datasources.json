@@ -5,9 +5,9 @@
   },
   "database": {
     "host": "127.0.0.1",
-    "port": 8080,
+    "port": 5432,
     "url": "",
-    "database": "database",
+    "database": "mydatabase",
     "password": "1234",
     "name": "database",
     "user": "postgres",
