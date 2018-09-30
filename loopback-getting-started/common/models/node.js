@@ -1,6 +1,11 @@
 'use strict';
 
 module.exports = function(Node) {
+    /*var ds = Node.dataSource;
+        var sql = "SELECT * FROM node";
+
+        console.log(Node.dataSource);
+        ds.database.query(sql);*/
   /*  Node.afterCreate = function(next) {
         if (this.node_id)
             Node.findById(this.node_id)

@@ -61,7 +61,27 @@ module.exports = function(app) {
 
       console.log('Models created.');
 
-      console.log(app.dataSources.database.prototype.query('select * from node;'));
+      //console.log(app.dataSources.database.connector);
+      app.dataSources.database.connector.execute(`CREATE FUNCTION trigger_change_count_child_after_ins()
+      RETURNS trigger AS
+      $BODY$
+      DECLARE
+          tmp node%ROWTYPE;
+      BEGIN
+        SELECT * INTO tmp FROM node WHERE id = NEW.node_id;
+      
+        tmp.count_child = tmp.count_child + 1;
+        
+        UPDATE node
+        SET count_child = tmp.count_child
+        WHERE id = NEW.node_id; 
+        
+        return NEW;
+      END;
+      $BODY$
+        LANGUAGE plpgsql;`, null, (err, resultObjects) => {
+        
+        })
      /* app.dataSources.database.query(`CREATE FUNCTION trigger_change_count_child_after_ins()
       RETURNS trigger AS
       $BODY$
